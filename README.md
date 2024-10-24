@@ -3,7 +3,7 @@
 Welcome to **Shop Grocery**, a user-friendly web application designed to streamline the grocery shopping experience. This app allows users to browse products, manage their shopping carts, and place orders efficiently. Admins have the ability to manage products, bookings, and user accounts, making it a comprehensive platform for both customers and store owners.
 
 UI design Link: https://www.figma.com/proto/JBBu7A3KGZXflq1l8Us7Ow/Grocery-App?page-id=0%3A1&node-id=29-2&node-type=text&m=dev&scaling=min-zoom&content-scaling=fixed&t=7smlwesFRzMpRaTM-1
-
+![2024-10-24 14_29_39-Grocery App - High-fillity - Figma](https://github.com/user-attachments/assets/a15b8a4c-a00d-4af3-8ad1-3257d679f85a)
 ## Features
 
 - **User Features:**
