@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const stripe = require("stripe")(
-  "sk_test_51QCbs4H2qM00mOTftra5THUKosXg25Ym2wZQCp5p5IbKzH4iLIqWpB8aNJXcJuqsC23JZ9fSfaZRwxdw0f10VycX00L1IUYt5i"
+  "#"
 ); // Add your Stripe secret key here
 
 const app = express();
