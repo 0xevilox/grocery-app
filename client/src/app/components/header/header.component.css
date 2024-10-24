@@ -1,0 +1,38 @@
+* {
+  background-color: #fffaf3;
+}
+
+.logo {
+  width: 205px;
+  height: 169px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+}
+
+.nav-item {
+  width: 200px;
+  flex-shrink: 0;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  line-height: normal;
+}
+.nav-link {
+  color: #000;
+}
+.image-logo {
+  width: 60px;
+  margin-right: 40px;
+}
+.cart {
+  width: 52px;
+  height: 58.324px;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  stroke: rgba(16, 16, 16, 0.4);
+}

@@ -1,0 +1,66 @@
+<div class="payment-container p-4">
+    <h1 style="color: rgb(62,62,62); font-size: 38px; font-weight: bold;" class="mb-4">Manage Payments</h1>
+    <div *ngIf="data.length === 0">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <img src="https://img.freepik.com/free-vector/black-friday-concept-illustration_114360-3667.jpg?size=626&ext=jpg&ga=GA1.2.796843707.1683431325&semt=ais"
+                    alt="No Cart Items" class="img-fluid">
+                <h3 class="mt-3" style="color: rgb(62,62,62); font-weight: bold;">No Payments</h3>
+                <p style="color: #787878;">Your Customer didn't payment yet!</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isUpdate">
+        <form [formGroup]="statusForm" #r="ngForm" (ngSubmit)="onSubmit(r.value)">
+            <div class="form-group">
+                <label for="statusSelect">Select Status</label>
+                <select class="form-control" id="statusSelect" formControlName="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Success">Success</option>
+                    <option value="Failed">Failed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input placeholder="Enter amount" type="text" class="form-control" id="amount" formControlName="amount"
+                    required>
+                <div *ngIf="statusForm.controls['amount'].touched && statusForm.controls['amount']?.['errors']">
+                    <div *ngIf="statusForm.controls['amount']?.['errors']?.['required']"
+                        class="error-message text-danger">
+                        Amount is required
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Save Changes
+            </button>
+        </form>
+    </div>
+    <div *ngIf="data.length !== 0">
+        <div class="payments-list-container" *ngIf="!isUpdate">
+            <div class="card mb-2" *ngFor="let payment of data">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Payment ID:</strong> {{ payment._id }}</h5>
+                    <p class="card-text"><strong>Customer Name:</strong> {{ payment.name }}</p>
+                    <p class="card-text"><strong>UserId:</strong> {{ payment.user }}</p>
+                    <p class="card-text"><strong>Order:</strong> {{ payment.order }}</p>
+                    <p class="card-text"><strong>Amount:</strong> {{ payment.amount }} /-</p>
+                    <p class="card-text"><strong>Method:</strong> {{ payment.paymentMethod }}</p>
+                    <p class="card-text"><strong>Payment Status: </strong> {{ payment.status }}</p>
+                    <p class="card-text"><strong>Order Status: </strong>{{ payment.deliveryStatus}}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="card-text"><strong>Created At:</strong> {{ payment.createdAt | date }}</p>
+                        <button class="btn" *ngIf="payment.status === 'Pending'"
+                            style="background-color: rgb(98, 90, 252); color: #fff; width: 150px;"
+                            (click)="onChangeStatus(payment._id)">Manage
+                            payment</button>
+                        <button class="btn btn-success" *ngIf="payment.deliveryStatus === 'Delivered'" [disabled]="true"
+                            (click)="onChangeStatus(payment._id)">Paid Successfully</button>
+                        <button class="btn btn-danger" *ngIf="payment.deliveryStatus === 'Canceled'"
+                            (click)="onChangeStatus(payment._id)" [disabled]="true">Customer Canceled</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

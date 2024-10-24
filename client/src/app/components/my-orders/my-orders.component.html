@@ -1,0 +1,36 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<div class="p-4 myorder-container" *ngIf="!isLoading">
+    <h1 class="mb-2" style="color: rgb(62,62,62); font-size: 38px; font-weight: bold;">My Orders</h1>
+    
+    <div class="container" *ngIf="myOrdersList.length === 0">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <img src="https://img.freepik.com/free-vector/black-friday-concept-illustration_114360-3667.jpg?size=626&ext=jpg&ga=GA1.2.796843707.1683431325&semt=ais" alt="No Cart Items" class="img-fluid">
+            <h3 class="mt-3" style="color: rgb(98, 90, 252); font-weight: bold;">No Cart Items</h3>
+            <p style="color: #787878;">Your cart is empty. Start shopping now!</p>
+          </div>
+        </div>
+      </div> 
+    <ng-container >
+        <div class="mb-2" *ngFor="let item of myOrdersList">
+            <div class="card-body card" *ngIf="item.status !== 'Delivered'">
+                <p class="card-text"><strong>Name:</strong> {{ item.firstname }}</p>
+                <p class="card-text"><strong>Product Name:</strong> {{ item.productName }}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                <p class="card-text"><strong>Total Price:</strong> {{ item.price }}</p>
+                <p class="card-text"><strong>Payment Method:</strong> {{ item.paymentMethod }}</p>
+                <p class="card-text"><strong>Address:</strong> {{ item.address }}</p>
+                <p class="card-text"><strong>Created At:</strong> {{ item.createdAt | date }}</p>
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <p class="card-text"><strong>Status:</strong> {{ item.status }}</p>
+                    <button class="btn btn-danger" *ngIf="item.status === 'Canceled'" [disabled]="true"
+                        (click)="onCancelOrder(item._id)">Order Canceled</button>
+                    <button class="btn btn-outline-danger" *ngIf="item.status !== 'Canceled'"
+                        (click)="onCancelOrder(item._id)">Cancel Order</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,26 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<ul class="list-group p-4" *ngIf="!isLoading">
+    <h1 style="color: rgb(62,62,62); font-size: 38px; font-weight: bold;" class="mb-4">Users</h1>
+    <li class="list-group-item" *ngFor="let user of users">
+      <div class="col card p-4">
+        <div>
+            <strong>User Id:</strong> {{ user._id }}
+          </div>
+        <div>
+          <strong>First Name:</strong> {{ user.firstname }}
+        </div>
+        <div>
+          <strong>Last Name:</strong> {{ user.lastname }}
+        </div>
+        <div>
+          <strong>Username:</strong> {{ user.username }}
+        </div>
+        <div>
+          <strong>Email:</strong> {{ user.email }}
+        </div>
+      </div>
+    </li>
+  </ul>
+  

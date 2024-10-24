@@ -1,0 +1,45 @@
+.add-product-container{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    height: 90vh;
+    overflow: auto;
+}
+
+.add-product-form-container{
+    display: flex;
+    align-items: center;
+    
+}
+@media screen and (max-width:768px) {
+    .add-product-form-container{
+        flex-direction: column;
+    }
+}
+
+
+.card{
+    width: 100%;
+    padding: 40px;
+}
+@media screen and (max-width:768px) {
+    .card{
+        border: 0;
+        padding: 30px;
+    }
+}
+
+
+
+.heading{
+    font-family: "Bree Serif";
+    font-size: 26px;
+}
+
+
+.loader-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

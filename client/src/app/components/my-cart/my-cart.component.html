@@ -1,0 +1,32 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<div class="cartlist-container bg-light text-dark" *ngIf="!isLoading">
+    <h1 style="color: rgb(49, 49, 49); font-size: 38px; font-weight: bold;" class="ml-4 mt-4">My Cart</h1>
+    <div class="container" *ngIf="cartList.length === 0">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <img src="https://img.freepik.com/free-vector/black-friday-concept-illustration_114360-3667.jpg?size=626&ext=jpg&ga=GA1.2.796843707.1683431325&semt=ais"
+                    alt="No Cart Items" class="img-fluid">
+                <h3 class="mt-3" style="color: rgb(200, 200, 200); font-weight: bold;">No Cart Items</h3>
+                <p style="color: #787878;">Your cart is empty. Start shopping now!</p>
+            </div>
+        </div>
+    </div>
+    <ul class="cart-list mt-4" *ngFor="let item of cartList">
+        <li class="cart-item">
+            <div class="cart-details w-100">
+                <img src="{{item.image}}" alt="{{item.productname}}" class="image"
+                    routerLink="/product-details/{{item._id}}">
+                <div class="ml-2">
+                    <h3>{{item.productname}}</h3>
+                    <p>Price: {{item.price}} /-</p>
+                    <button class="btn btn-primary" routerLink="/place-order/{{item._id}}">Buy this product</button>
+                </div>
+            </div>
+            <div>
+                <button type="button" (click)="onRemove(item._id)" class="btn text-dark"><i class="fa fa-times"></i></button>
+            </div>
+        </li>
+    </ul>
+</div>

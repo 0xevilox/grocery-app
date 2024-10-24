@@ -1,0 +1,28 @@
+<div class="feedback-container">
+    <div class="card">
+        <form [formGroup]="regForm" #r="ngForm" (ngSubmit)="onSubmit(r.value)" class="form">
+            <h2 class="heading text-center">Submit your feedback</h2>
+            <div class="form-group mb-2">
+                <label for="user">User</label>
+                <input placeholder="Enter Your Name" type="text" class="form-control" id="user" formControlName="user" required>
+                <div *ngIf="regForm.controls['user'].touched && regForm.controls['user']?.['errors']">
+                    <div *ngIf="regForm.controls['user']?.['errors']?.['required']"
+                        class="error-user text-danger">
+                        Username is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="message">Feedback</label>
+                <textarea placeholder="Enter Your Feedback" rows="8" type="text" class="form-control" id="message" formControlName="message" required></textarea>
+                <div *ngIf="regForm.controls['message'].touched && regForm.controls['message']?.['errors']">
+                    <div *ngIf="regForm.controls['message']?.['errors']?.['required']"
+                        class="error-message text-danger">
+                        message is required
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4 w-100" [disabled]="regForm.invalid" >Submit</button>
+        </form>
+    </div>
+</div>

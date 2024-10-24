@@ -1,0 +1,36 @@
+footer {
+    background-color: #2c2c2c;
+    padding: 20px 0;
+  }
+  
+  footer h4 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  footer p {
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  footer ul li {
+    margin-bottom: 5px;
+  }
+  
+  footer ul li a {
+    color: #555;
+    text-decoration: none;
+  }
+  
+  footer ul li a:hover {
+    text-decoration: underline;
+  }
+  

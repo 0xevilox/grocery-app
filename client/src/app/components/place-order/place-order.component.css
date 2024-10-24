@@ -1,0 +1,51 @@
+.update-add-product-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .card{
+    width: 50%;
+  }
+  @media screen and (max-width:768px) {
+    .card{
+        width: 90%;
+    }
+  }
+
+  .back-button{
+    width: 50%;
+  }
+  @media screen and (max-width:768px) {
+    .back-button{
+        width: 90%;
+    }
+  } 
+
+  .loader-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-message-container{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-message{
+  border-radius: 10px;
+  width: 500px;
+}
+
+.text-success{
+  font-size: 36px;
+  font-weight: bold;
+}

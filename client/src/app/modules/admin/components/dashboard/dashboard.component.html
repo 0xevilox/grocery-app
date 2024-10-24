@@ -1,0 +1,52 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<div class="row p-4 w-100" *ngIf="!isLoading">
+    <h1 style="color: rgb(62,62,62); font-size: 38px; font-weight: bold;" class="mb-4">Dashboard</h1>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card" style="box-shadow: 0 0 20px #dddddd; border: none;">
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <p class="card-text">Total users: {{usersList.length}}</p>
+          <a routerLink="/admin/users" class="btn" style="background-color: rgb(68, 68, 68); color: white;">View Users</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card"  style="box-shadow: 0 0 20px #dddddd; border: none;">
+        <div class="card-body">
+          <h5 class="card-title">Orders</h5>
+          <p class="card-text">Total orders: {{ordersList.length}}</p>
+          <a routerLink="/admin/orders" class="btn" style="background-color: rgb(68, 68, 68); color: white;">View Orders</a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card"  style="box-shadow: 0 0 20px #dddddd; border: none;">
+        <div class="card-body">
+          <h5 class="card-title">Payments</h5>
+          <p class="card-text">Total payments: {{ordersList.length}}</p>
+          <a routerLink="/admin/payment" class="btn" style="background-color: rgb(68, 68, 68); color: white;">View Payments</a>
+        </div>
+      </div>
+    </div> -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card"  style="box-shadow: 0 0 20px #dddddd; border: none;">
+        <div class="card-body">
+          <h5 class="card-title">Add Products</h5>
+          <p class="card-text">Click to add new products</p>
+          <a routerLink="/admin/add-products" class="btn" style="background-color: rgb(68, 68, 68); color: white;">Add Products</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card"  style="box-shadow: 0 0 20px #dddddd; border: none;">
+        <div class="card-body">
+          <h5 class="card-title">Add Category</h5>
+          <p class="card-text">Click to add new category</p>
+          <a routerLink="/admin/add-categories" class="btn" style="background-color: rgb(68, 68, 68); color: white;">Add Category</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<div class="container pt-2 w-100" *ngIf="!isLoading">
+    <div class="btn btn-dark mb-5" style="width: fit-content;" routerLink="/shopping">Go Back</div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="{{ product?.image }}" alt="{{ product?.productname }}" class="img-fluid mb-2 mb-md-0">
+        </div>
+        <div class="col-12 col-md-6 details-container">
+            <div>
+                <h1>{{ product?.productname }}</h1>
+                <p>{{ product?.description }}</p>
+                <h2>Price: {{ product?.price }}/-</h2>
+            </div>
+            <div class="buttons-container"><button class="btn btn-warning w-50" routerLink="/place-order/{{product?._id}}">Buy Now</button>
+                <button (click)="onAddToCart(product?._id)" class="btn btn-primary w-50">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="loader-container w-100" *ngIf="isLoading">
+    <app-loader-spinner></app-loader-spinner>
+</div>
+<div class="feedback-container" *ngIf="!isLoading">
+    <h1 style="color: rgb(62,62,62); font-size: 38px; font-weight: bold;" class="ml-4 mt-4">Feedbacks</h1>
+    <div *ngIf="data.length === 0">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <img src="https://img.freepik.com/free-vector/black-friday-concept-illustration_114360-3667.jpg?size=626&ext=jpg&ga=GA1.2.796843707.1683431325&semt=ais"
+                    alt="No Cart Items" class="img-fluid">
+                <h3 class="mt-3" style="color: rgb(62,62,62); font-weight: bold;">No Feedbacks</h3>
+                <p style="color: #787878;">Your Customer didn't given Feedback yet!</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="data.length !== 0">
+        <div class="row">
+            <div class="col-12">
+                <div *ngFor="let item of data" class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.user }}</h5>
+                        <p class="card-text">{{ item.message }}</p>
+                        <p class="card-text"><small class="text-muted">{{ item.createdAt| date }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

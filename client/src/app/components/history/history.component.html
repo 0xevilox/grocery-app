@@ -1,0 +1,32 @@
+
+
+<div class="p-4 myorder-container">
+    <h1 class="mb-2" style="color: rgb(62, 62, 62); font-size: 38px; font-weight: bold;">History</h1>
+    <div class="loader-container w-100" *ngIf="isLoading">
+        <app-loader-spinner></app-loader-spinner>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <div class="mb-2" *ngFor="let item of myOrdersList">
+            <div class="card-body card" style="border: 1px solid #00c73f;" *ngIf="item.status === 'Delivered'">
+                <p class="card-text"><strong>Product Name:</strong> {{ item.productName }}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                <p class="card-text"><strong>Total Price:</strong> {{ item.price }}</p>
+                <p class="card-text"><strong>Payment Method:</strong> {{ item.paymentMethod }}</p>
+                <p class="card-text"><strong>Address:</strong> {{ item.address }}</p>
+                <p class="card-text"><strong>Created At:</strong> {{ item.createdAt | date }}</p>
+                <p class="card-text text-success"><strong>Status:</strong> {{ item.status }}</p>
+            </div>            
+        </div>
+        <div class="mb-2" *ngFor="let item of myOrdersList">
+            <div class="card-body card" style="border: 1px solid #c70000;" *ngIf="item.status === 'Canceled'">
+                <p class="card-text"><strong>Product Name:</strong> {{ item.productName }}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                <p class="card-text"><strong>Total Price:</strong> {{ item.price }}</p>
+                <p class="card-text"><strong>Payment Method:</strong> {{ item.paymentMethod }}</p>
+                <p class="card-text"><strong>Address:</strong> {{ item.address }}</p>
+                <p class="card-text"><strong>Created At:</strong> {{ item.createdAt | date }}</p>
+                <p class="card-text text-danger"><strong>Status:</strong> {{ item.status }}</p>
+            </div>            
+        </div>
+    </ng-container>
+</div>

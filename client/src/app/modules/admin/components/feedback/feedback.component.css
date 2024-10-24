@@ -1,0 +1,20 @@
+.loader-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-container{
+    height: 90vh;
+    overflow: auto;
+}
+
+.img-fluid{
+    width: 30%;
+}
+@media screen and (max-width:768px) {
+    .img-fluid{
+        width: 100%;
+    }
+}
